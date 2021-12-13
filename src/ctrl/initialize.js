@@ -1,0 +1,1 @@
+var ns = { model:{}, view:{}, ctrl:{} }; 

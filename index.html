@@ -2,20 +2,39 @@
 <html xmlns="http://www.testApp.com/" xml:lang="en" lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Minimal JS front-end App Example</title>
-  <script src="src/model/Book.js"></script>
+  <title>Simple Web Application</title>
+  <script src="src/ctrl/initialize.js"></script>
+  <script src="src/model/Image.js"></script>
+  <script src="src/view/addImage.js"></script>
+  <script src="src/view/lookupImage.js"></script>
 </head>
 <body>
-  <h1>Public Library</h1>
-  <h2>An Example of a Minimal JavaScript front-end App</h2>
-  <p>This app supports the following operations:</p>
-  <menu>
-    <li><a href="listBooks.html"><button type="button">Upload an image</button></a></li>
-    <li><a href="createBook.html"><button type="button">Add a new book</button></a></li>
-    <li><a href="updateBook.html"><button type="button">Update a book</button></a></li>
-    <li><a href="deleteBook.html"><button type="button">Delete a book</button></a></li>
-    <li><button type="button" onclick="Book.clearData()">Clear database</button></li>
-    <li><button type="button" onclick="Book.createTestData()">Create test data</button></li>
-  </menu>
+	<h1>Simple Image Loader/Viewer</h1>
+	<h2>Upload an image</h2>
+	<form id="formImage">
+		<p><label>Image Name: <input name="imageName" /></label></p>
+		<button type="button" onclick="ns.view.addImage.handleSaveButtonClickEvent()">Save Image</button>
+	</form>
+	
+	<h2>Image Table</h2>
+	<table id="tableImage">
+		<tr>
+			<th>Current Image Name: </th>
+			<td id="currentImageName">fuck</td>
+		</tr>
+	</table>
+	<div align="left">
+		<button type="button" onclick="ns.view.lookupImage.handleLeftButtonClickEvent()"> <- </button>
+		<button type="button" onclick="ns.view.lookupImage.handleRightButtonClickEvent()"> -> </button>
+	</div>
+	
+	<h2>Clear image data</h2>
+	<button type="button" onclick="Image.clearLocalStorage()">Clear images from local storage</button>
 </body>
+
+<!-- JavaScript is interpreted so you need to call these AFTER defining tables, forms, etc. -->
+<script>
+	ns.view.lookupImage.init();
+</script>
+
 </html> 
